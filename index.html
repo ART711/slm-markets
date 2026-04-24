@@ -96,6 +96,18 @@
   }
   @media (max-width: 1200px) { .stocks-grid { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 900px)  { .stocks-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 540px)  { .stocks-grid { grid-template-columns: 1fr; gap: 10px; } }
+
+  @media (max-width: 540px) {
+    .topbar { padding: 0 16px; }
+    .main { padding: 16px 12px 32px; }
+    .hero { grid-template-columns: 1fr; padding: 20px 18px 0; min-height: auto; gap: 0; }
+    .hero-right { min-height: 120px; }
+    .hero-value { font-size: 32px; }
+    .hero-meta { flex-wrap: wrap; gap: 12px; }
+    .wm-value { font-size: 44px; }
+    .card-price { font-size: 24px; }
+  }
 
   /* ── STOCK CARD ── */
   .stock-card {
