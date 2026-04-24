@@ -98,42 +98,58 @@
   @media (max-width: 900px)  { .stocks-grid { grid-template-columns: repeat(2, 1fr); } }
 
   @media (max-width: 600px) {
-    /* Layout */
-    .topbar { padding: 0 14px; }
-    .main { padding: 12px 10px 32px; }
+    /* Zapobieganie overflow całej strony */
+    html, body { overflow-x: hidden; }
+    .main { overflow-x: hidden; }
 
-    /* Hero - jedna kolumna, wykres schowany, tylko dane */
+    /* Topbar - ukryj TOTAL label i status text, zostaw logo + wartość + dot */
+    .topbar { padding: 0 12px; gap: 0; }
+    .topbar-left { gap: 8px; flex-wrap: nowrap; min-width: 0; overflow: hidden; }
+    .total-label { display: none; }
+    .total-block { gap: 6px; min-width: 0; overflow: hidden; }
+    .total-value { font-size: 16px; white-space: nowrap; }
+    .total-pl { font-size: 11px; white-space: nowrap; }
+    .topbar-right { flex-shrink: 0; gap: 8px; }
+    .refresh-time { display: none; }
+    .status { padding: 4px 8px; font-size: 10px; }
+    #statusText { display: none; }
+
+    /* Main padding */
+    .main { padding: 10px 8px 32px; gap: 10px; }
+
+    /* Hero - jedna kolumna, wykres ukryty */
     .hero {
       grid-template-columns: 1fr;
-      padding: 18px 18px 16px;
+      padding: 16px 16px 14px;
       min-height: auto;
       gap: 0;
+      overflow: hidden;
     }
     .hero-right { display: none; }
-    .hero-value { font-size: 34px; }
-    .hero-pl-abs { font-size: 15px; }
-    .hero-pl-pct { font-size: 13px; }
-    .hero-meta { flex-wrap: wrap; gap: 14px 20px; margin-top: 12px; }
     .hero-left { padding-bottom: 0; }
+    .hero-value { font-size: 32px; }
+    .hero-pl-abs { font-size: 14px; }
+    .hero-pl-pct { font-size: 12px; }
+    .hero-meta { flex-wrap: wrap; gap: 10px 18px; margin-top: 10px; }
 
-    /* Grid kart - 2 kolumny, mniejsze */
+    /* Grid kart - 2 kolumny, mieści się w ekranie */
     .stocks-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
 
-    /* Karty - kompaktowe */
-    .card-header { padding: 12px 12px 8px; }
-    .card-top { margin-bottom: 8px; }
+    /* Karty kompaktowe */
+    .card-header { padding: 10px 10px 6px; }
+    .card-top { margin-bottom: 6px; }
     .card-name { font-size: 10px; }
-    .card-ticker { font-size: 10px; padding: 2px 6px; }
-    .card-price { font-size: 20px; }
-    .card-price .cur { font-size: 11px; top: 4px; }
-    .card-change { font-size: 10px; margin-top: 4px; }
-    .chart-wrap { height: 60px; }
-    .card-divider { margin: 0 12px; }
-    .card-stats { padding: 10px 12px 12px; gap: 8px 12px; }
+    .card-ticker { font-size: 9px; padding: 2px 5px; }
+    .card-price { font-size: 18px; }
+    .card-price .cur { font-size: 10px; top: 3px; }
+    .card-change { font-size: 10px; margin-top: 3px; }
+    .chart-wrap { height: 55px; }
+    .card-divider { margin: 0 10px; }
+    .card-stats { padding: 8px 10px 10px; gap: 6px 10px; }
     .stat-label { font-size: 9px; }
-    .stat-value { font-size: 12px; }
-    .stat-pl .stat-value { font-size: 13px; }
-    .stat-pl .stat-pct { font-size: 11px; }
+    .stat-value { font-size: 11px; }
+    .stat-pl .stat-value { font-size: 12px; }
+    .stat-pl .stat-pct { font-size: 10px; }
   }
 
   /* ── STOCK CARD ── */
@@ -336,7 +352,7 @@
     <div class="logo">SLM <span>Portfolio</span></div>
     <div class="total-block">
       <span class="total-label">Total</span>
-      <span class="total-value" id="totalValue"><span id="totalValueNum" class="skeleton" style="min-width:80px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+      <span class="total-value" id="totalValue"><span id="totalValueNum" class="skeleton" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
       <span class="total-pl" id="totalPlAbs">—</span>
       <span class="total-pl" id="totalPlPct" style="opacity:.7">—</span>
     </div>
@@ -359,7 +375,7 @@
     <div class="hero-left">
       <div class="hero-label">Portfolio Value</div>
       <div class="hero-value">
-        <span class="hero-cur">$</span><span id="heroValueNum" class="skeleton" style="min-width:120px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span class="hero-cur">$</span><span id="heroValueNum" class="skeleton" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
       </div>
       <div class="hero-pl-row">
         <span class="hero-pl-abs" id="heroPlAbs">—</span>
