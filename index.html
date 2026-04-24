@@ -96,17 +96,44 @@
   }
   @media (max-width: 1200px) { .stocks-grid { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 900px)  { .stocks-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 540px)  { .stocks-grid { grid-template-columns: 1fr; gap: 10px; } }
 
-  @media (max-width: 540px) {
-    .topbar { padding: 0 16px; }
-    .main { padding: 16px 12px 32px; }
-    .hero { grid-template-columns: 1fr; padding: 20px 18px 0; min-height: auto; gap: 0; }
-    .hero-right { min-height: 120px; }
-    .hero-value { font-size: 32px; }
-    .hero-meta { flex-wrap: wrap; gap: 12px; }
-    .wm-value { font-size: 44px; }
-    .card-price { font-size: 24px; }
+  @media (max-width: 600px) {
+    /* Layout */
+    .topbar { padding: 0 14px; }
+    .main { padding: 12px 10px 32px; }
+
+    /* Hero - jedna kolumna, wykres schowany, tylko dane */
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 18px 18px 16px;
+      min-height: auto;
+      gap: 0;
+    }
+    .hero-right { display: none; }
+    .hero-value { font-size: 34px; }
+    .hero-pl-abs { font-size: 15px; }
+    .hero-pl-pct { font-size: 13px; }
+    .hero-meta { flex-wrap: wrap; gap: 14px 20px; margin-top: 12px; }
+    .hero-left { padding-bottom: 0; }
+
+    /* Grid kart - 2 kolumny, mniejsze */
+    .stocks-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+
+    /* Karty - kompaktowe */
+    .card-header { padding: 12px 12px 8px; }
+    .card-top { margin-bottom: 8px; }
+    .card-name { font-size: 10px; }
+    .card-ticker { font-size: 10px; padding: 2px 6px; }
+    .card-price { font-size: 20px; }
+    .card-price .cur { font-size: 11px; top: 4px; }
+    .card-change { font-size: 10px; margin-top: 4px; }
+    .chart-wrap { height: 60px; }
+    .card-divider { margin: 0 12px; }
+    .card-stats { padding: 10px 12px 12px; gap: 8px 12px; }
+    .stat-label { font-size: 9px; }
+    .stat-value { font-size: 12px; }
+    .stat-pl .stat-value { font-size: 13px; }
+    .stat-pl .stat-pct { font-size: 11px; }
   }
 
   /* ── STOCK CARD ── */
